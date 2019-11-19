@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        span {
+            background: #000;
+            color: #fff;
+        }
+
+        em {
+            font-style: normal;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 子良原创代码 -->
+    <span id="hh"></span><em>:</em><span id="mm"></span><em>:</em><span id="ss"></span>
+    <script type="text/javascript">
+        var hh = document.getElementById('hh'),
+            mm = document.getElementById('mm'),
+            ss = document.getElementById('ss'),
+            h = 10, m = 59, s = 59, timerId = null;
+
+        function countDown(){
+            hh.innerHTML = h;
+            mm.innerHTML = m;
+            ss.innerHTML = s;
+            s -= 1;
+            if (s < 10 && s >= 0) {
+                s = '0' + s;
+            }
+            if (s < 0) {
+                m -= 1, s = 60;
+                if (m >= 0) {
+                    if (m < 10) {
+                        m = '0' + m;
+                    }
+                    setTimeout(countDown, 1000);
+                }
+                else {
+                    h -= 1, m = 60, s = 60;
+                    if (h >= 0) {
+                        if (h < 10) {
+                            h = '0' + h;
+                        }
+                    setTimeout(countDown, 1000);
+                    }
+                    else {
+                        clearInterval(timerId);
+                    }
+                }
+            }
+        }
+        timerId = setInterval(countDown, 1000);      
+        setTimeout(function(){
+            var em1 = document.getElementsByTagName('em')[0],
+                em2 = document.getElementsByTagName('em')[1];
+            em1.style.display = 'inline';
+            em2.style.display = 'inline';
+        }, 1000)
+    </script>
+</body>
+</html>
