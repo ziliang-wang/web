@@ -4,5 +4,4 @@
 ##### 以下为效果图与范例代码：
 
 ![1](images/countdown_result.png)
-
 ![2](images/countdown.png)
